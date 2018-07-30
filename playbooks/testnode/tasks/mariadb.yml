@@ -1,16 +1,15 @@
 ---
-- name: create vars
-  command: hostname
-  register: hostname
-- name: create ip
-  command: hostname -I
-  register: ipaddr
+# Not needed since ansible already has them
+#- name: create vars
+#  command: hostname
+#  register: hostname
 
 - name: install mariadb
   yum:
     name: mariadb
     state: present
-- name: copy rnd file
+    
+- name: Get values for some values
   template:
    src=mycoolconfig.j2
    dest=/home/vagrant/config.ch

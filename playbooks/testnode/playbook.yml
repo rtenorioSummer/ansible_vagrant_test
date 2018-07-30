@@ -1,7 +1,5 @@
 ---
 - hosts: all
   sudo: true
-  vars:
-   thing: "{{hostvars['inverntory_hostname']}}"
   tasks:
    - include: tasks/mariadb.yml
