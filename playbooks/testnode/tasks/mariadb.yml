@@ -1,5 +1,16 @@
----   
+---
+- name: create vars
+  command: hostname
+  register: hostname
+- name: create ip
+  command: hostname -I
+  register: ipaddr
+
 - name: install mariadb
   yum:
     name: mariadb
     state: present
+- name: copy rnd file
+  template:
+   src=mycoolconfig.j2
+   dest=/home/vagrant/config.ch
